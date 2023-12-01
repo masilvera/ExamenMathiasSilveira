@@ -17,16 +17,13 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validaciones
     if (formData.fullName.length <= 5) {
       setError("Nombre completo debe tener más de 5 caracteres");
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
       setError("Formato de email incorrecto");
     } else {
-      // Lógica de éxito
       setError("");
       setSuccessMessage(`Gracias ${formData.fullName}, te contactaremos pronto vía email`);
-      // Puedes mostrar los datos submiteados en la consola
       console.log("Datos submiteados:", formData);
     }
   };
@@ -56,11 +53,8 @@ const Form = () => {
 
         <button type="submit">Enviar</button>
       </form>
-
-      {/* Mostrar mensaje de error */}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      {/* Mostrar mensaje de éxito */}
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
     </div>
   );
